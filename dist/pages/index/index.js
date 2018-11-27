@@ -20,6 +20,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var app = getApp();
+
 var Index = function (_BaseComponent) {
   _inherits(Index, _BaseComponent);
 
@@ -47,7 +49,12 @@ var Index = function (_BaseComponent) {
   }, {
     key: "navigateTo",
     value: function navigateTo(url) {
-      console.log(url);
+      app.aldstat.sendEvent('跳转页面', {
+        url: "pages/test/index"
+      });
+      // getApp().aldstat.sendEvent({
+      //   url : "pages/test/index"
+      // })
       _index2.default.navigateTo({
         url: url
       });
